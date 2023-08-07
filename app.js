@@ -22,3 +22,5 @@ modalCloseBtn.addEventListener("click", () => {
 backDrop.addEventListener("click", () => {
   close();
 });
+
+// ============end==========
