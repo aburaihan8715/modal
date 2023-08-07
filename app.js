@@ -1,43 +1,24 @@
 // variables
-const btnsOpenModal = document.querySelectorAll(".btn-open-modal");
-const modalDiv=document.querySelector(".modal");
-const btnCloseModal=document.querySelector(".btn-close-modal");
-const backDropDiv=document.querySelector(".back-drop");
+const modalOpenBtn = document.querySelector(".modal-open-btn");
+const modalCloseBtn = document.querySelector(".modal-close-btn");
+const backDrop = document.querySelector(".back-drop");
+const modal = document.querySelector(".modal");
 
-// function for open modal and backdrop
-function open(){
-  modalDiv.classList.add("open");
-  backDropDiv.classList.add("open");
+function close() {
+  modal.classList.remove("open");
+  backDrop.classList.remove("open");
 }
 
-// function for close modal and backdrop
-function close(){
-  modalDiv.classList.remove("open");
-  backDropDiv.classList.remove("open");
-}
+modalOpenBtn.addEventListener("click", () => {
+  modal.classList.add("open");
+  modal.classList.add("zoom");
+  backDrop.classList.add("open");
+});
 
-// event listener for open modal 
-for(let i=0; i<btnsOpenModal.length; i++){
-btnsOpenModal[i].addEventListener("click", function(){
-  //1.using style
-  // modalDiv.style.display="block";
-  // backDropDiv.style.display='block';
-  // 2. adding classlist
-  open();
-})
-}
+modalCloseBtn.addEventListener("click", () => {
+  close();
+});
 
-// event listener for close modal 
-btnCloseModal.addEventListener("click", function(){
- close();
-})
-
-// event listener for close backdrop
-backDropDiv.addEventListener("click", function(){
- close();
-})
-
-
-
-
-
+backDrop.addEventListener("click", () => {
+  close();
+});

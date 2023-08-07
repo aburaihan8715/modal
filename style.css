@@ -2,11 +2,12 @@ html {
   font-size: 62.5%;
 }
 body {
-  position: relative;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
   box-sizing: border-box;
+  padding: 10px;
+  font-size: 1.6rem;
 }
 * {
   margin: 0;
@@ -14,31 +15,73 @@ body {
   box-sizing: inherit;
 }
 
-.btn-open-modal-wrapper {
-  text-align: center;
-  padding-top: 100px;
+.container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
 }
+/* css for modal */
+.modal-open-btn-wrapper {
+  text-align: right;
+}
+.modal-open-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: rgb(110, 98, 89);
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.modal-open-btn:hover {
+  background-color: rgb(77, 69, 64);
+}
+
 .modal {
-  position: absolute;
-  width: 80%;
-  background-color: yellow;
+  position: fixed;
+  max-width: 500px;
+  background-color: rgb(198, 201, 216);
+  padding: 10px 20px 15px 20px;
+  border-radius: 5px;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 5px 15px 15px 15px;
-  z-index: 1;
   display: none;
 }
-
-.btn-close-wrapper {
+.modal-close-btn-wrapper {
   text-align: right;
 }
+.modal-close-btn {
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.modal-close-btn:hover {
+  opacity: 0.5;
+}
+
+.modal-title {
+  text-transform: capitalize;
+  border-bottom: 2px solid goldenrod;
+  padding: 5px 0;
+}
+.modal-body {
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
 .back-drop {
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
+  border: 0;
   background: #000;
   opacity: 0.7;
   display: none;
@@ -46,4 +89,23 @@ body {
 
 .open {
   display: block;
+}
+
+.zoom {
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
